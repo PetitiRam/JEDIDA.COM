@@ -1,0 +1,28 @@
+# Dependencies
+node_modules/
+
+# Environment variables
+.env
+.env.*
+!.env.example
+!backend/.env.example
+
+# Build output
+dist/
+build/
+
+# Logs
+*.log
+npm-debug.log*
+
+# macOS
+.DS_Store
+
+# Vite
+frontend/dist/
+
+# Backend uploads (if applicable)
+uploads/
+
+# Coverage
+coverage/

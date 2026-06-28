@@ -1,0 +1,17 @@
+2026-06-26 18:34:32.138 EAT [77009] LOG:  starting PostgreSQL 16.14 (Homebrew) on x86_64-apple-darwin21.6.0, compiled by Apple clang version 14.0.0 (clang-1400.0.29.202), 64-bit
+2026-06-26 18:34:32.140 EAT [77009] LOG:  listening on IPv6 address "::1", port 5432
+2026-06-26 18:34:32.140 EAT [77009] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2026-06-26 18:34:32.141 EAT [77009] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2026-06-26 18:34:32.145 EAT [77012] LOG:  database system was shut down at 2026-06-26 18:31:22 EAT
+2026-06-26 18:34:32.150 EAT [77009] LOG:  database system is ready to accept connections
+2026-06-26 18:37:20.460 EAT [77048] FATAL:  lock file "postmaster.pid" already exists
+2026-06-26 18:37:20.460 EAT [77048] HINT:  Is another postmaster (PID 77009) running in data directory "/opt/homebrew/var/postgresql@16"?
+2026-06-26 18:39:32.151 EAT [77010] LOG:  checkpoint starting: time
+2026-06-26 18:40:37.939 EAT [77009] LOG:  received fast shutdown request
+2026-06-26 18:40:37.939 EAT [77009] LOG:  aborting any active transactions
+2026-06-26 18:40:37.941 EAT [77009] LOG:  background worker "logical replication launcher" (PID 77015) exited with exit code 1
+2026-06-26 18:40:37.971 EAT [77010] LOG:  checkpoint complete: wrote 978 buffers (6.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=65.801 s, sync=0.017 s, total=65.820 s; sync files=310, longest=0.001 s, average=0.001 s; distance=4588 kB, estimate=4588 kB; lsn=0/198E6A8, redo lsn=0/198E670
+2026-06-26 18:40:37.972 EAT [77010] LOG:  shutting down
+2026-06-26 18:40:37.972 EAT [77010] LOG:  checkpoint starting: shutdown immediate
+2026-06-26 18:40:37.973 EAT [77010] LOG:  checkpoint complete: wrote 0 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.001 s, sync=0.001 s, total=0.002 s; sync files=0, longest=0.000 s, average=0.000 s; distance=0 kB, estimate=4129 kB; lsn=0/198E720, redo lsn=0/198E720
+2026-06-26 18:40:37.983 EAT [77009] LOG:  database system is shut down
