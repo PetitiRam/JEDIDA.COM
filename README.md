@@ -293,3 +293,4 @@ autonomous agent that can rewrite its own backend is a severe security risk
   — same reasoning as before: the system is fully usable end-to-end now, and
   swapping in a real LLM call is a contained change to one function body per
   file.
+# JEDIDA.COM
