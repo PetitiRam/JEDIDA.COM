@@ -1,10 +1,14 @@
-import axios from 'axios';
+import axios from "axios";
 
-const client = axios.create({ baseURL: '/api' });
+const client = axios.create({
+  baseURL: import.meta.env.VITE_API_URL,
+});
 
 client.interceptors.request.use((config) => {
-  const token = localStorage.getItem('jedida_access_token');
-  if (token) config.headers.Authorization = `Bearer ${token}`;
+  const token = localStorage.getItem("jedida_access_token");
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`;
+  }
   return config;
 });
 
@@ -13,21 +17,30 @@ client.interceptors.response.use(
   (res) => res,
   async (error) => {
     const original = error.config;
+
     if (error.response?.status === 401 && !original._retry) {
       original._retry = true;
-      const refreshToken = localStorage.getItem('jedida_refresh_token');
+
+      const refreshToken = localStorage.getItem("jedida_refresh_token");
+
       if (refreshToken) {
         try {
-          const { data } = await axios.post('/api/auth/refresh', { refreshToken });
-          localStorage.setItem('jedida_access_token', data.accessToken);
+          const { data } = await axios.post(
+            `${import.meta.env.VITE_API_URL}/auth/refresh`,
+            { refreshToken }
+          );
+
+          localStorage.setItem("jedida_access_token", data.accessToken);
+
           original.headers.Authorization = `Bearer ${data.accessToken}`;
           return client(original);
-        } catch {
-          localStorage.removeItem('jedida_access_token');
-          localStorage.removeItem('jedida_refresh_token');
+        } catch (err) {
+          localStorage.removeItem("jedida_access_token");
+          localStorage.removeItem("jedida_refresh_token");
         }
       }
     }
+
     return Promise.reject(error);
   }
 );
