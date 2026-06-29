@@ -178,7 +178,12 @@ export async function getProductById(req, res) {
     await query('UPDATE products SET views_count = views_count + 1 WHERE id = $1', [req.params.id]);
     return res.json({ product: result.rows[0] });
   } catch (err) {
-    console.error('Get product error:', err);
-    return res.status(500).json({ error: 'Could not load product.' });
-  }
+  console.error("🔥 PRODUCTS ERROR:", err);
+
+  return res.status(500).json({
+    error: err.message,
+    detail: err
+  });
+}
+                  
 }
